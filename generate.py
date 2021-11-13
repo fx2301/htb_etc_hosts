@@ -2,9 +2,14 @@ import htb_cli.api
 import sys
 import optparse
 
+if len(sys.argv) != 2 or sys.argv[1] not in ['hosts', 'dnsmasq']:
+    print("Usage:\n\tpython3 generate.py [hosts|dnsmasq]", file=sys.stderr)
+    exit(1)
+
+FORMAT = sys.argv[1]
+
 print("Downloading machines from HtB API...", file=sys.stderr)
 machines = htb_cli.api.all_machines()
-# machines = htb_cli.api.active_machines()
 
 machines= sorted(machines, key=lambda m: m['name'].lower())
 
@@ -20,7 +25,12 @@ def output_machines(machines):
 
         url = f"https://app.hackthebox.com/machines/{machine['id']}"
         host_name = f"{machine['name'].lower()}.htb"
-        print(f"{machine['ip'].ljust(15,' ')}\t{host_name.ljust(20,' ')} # {url}")
+       
+        if FORMAT == 'hosts':
+            print(f"{machine['ip'].ljust(15,' ')}\t{host_name.ljust(20,' ')} # {url}")
+        else:
+            line = f"address=/{host_name}/{machine['ip']}"
+            print(f"{line.ljust(40, ' ')} # {url}")
 
 print('# Easy machines')
 output_machines(filter(lambda m: m['difficultyText'] == 'Easy', machines))

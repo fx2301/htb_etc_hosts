@@ -139,6 +139,7 @@
 10.10.10.234   	schooled.htb         # https://app.hackthebox.com/machines/335
 10.10.10.250   	seal.htb             # https://app.hackthebox.com/machines/358
 10.10.10.97    	secnotes.htb         # https://app.hackthebox.com/machines/151
+10.10.11.124   	shibboleth.htb       # https://app.hackthebox.com/machines/410
 10.10.10.82    	silo.htb             # https://app.hackthebox.com/machines/131
 10.10.10.20    	sneaky.htb           # https://app.hackthebox.com/machines/19
 10.10.10.197   	sneakymailer.htb     # https://app.hackthebox.com/machines/262
