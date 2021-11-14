@@ -114,9 +114,33 @@ source .venv/bin/activate
 pip install --editable ../htb_cli
 ```
 
-# Caveats
+# Work-around for dynamic IPs (e.g. personal release arena instances)
 
-These static IPs won't play nice with any dynamically IP addresses from HtB.
+These static IPs won't play nice with any dynamically IP addresses from HtB. A work-around is to edit your configuration. E.g. for dnsmasq:
+
+Oops, getting the post-release-arena IP address:
+```
+$ ping shibboleth.htb
+PING shibboleth.htb (10.10.11.124) 56(84) bytes of data.
+^C
+```
+
+Edit the shibboleth.htb entry in `dnsmasq.hosts.conf` to be my personal IP address:
+```
+$ vi dnsmasq.hosts.conf
+...snip...
+address=/shibboleth.htb/10.129.232.23
+...snip...
+```
+
+Restart `dnsmasq` and all is well:
+```
+$ sudo systemctl restart dnsmasq
+$ ping shibboleth.htb           
+PING shibboleth.htb (10.129.232.23) 56(84) bytes of data.
+64 bytes from 10.129.232.23 (10.129.232.23): icmp_seq=1 ttl=63 time=85.6 ms
+^C
+```
 
 # Contributing
 
