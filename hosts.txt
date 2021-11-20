@@ -9,6 +9,7 @@
 10.10.11.107   	antique.htb          # https://app.hackthebox.com/machines/400
 10.10.10.11    	arctic.htb           # https://app.hackthebox.com/machines/9
 10.10.10.233   	armageddon.htb       # https://app.hackthebox.com/machines/323
+10.10.11.125   	backdoor.htb         # https://app.hackthebox.com/machines/416
 10.10.10.29    	bank.htb             # https://app.hackthebox.com/machines/26
 10.10.10.68    	bashed.htb           # https://app.hackthebox.com/machines/118
 10.10.10.134   	bastion.htb          # https://app.hackthebox.com/machines/186
